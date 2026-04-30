@@ -2,8 +2,6 @@
 
 A high-performance, portfolio designed for cybersecurity professionals. This project features a sophisticated user experience driven by immersive 3D backgrounds, fluid scroll-linked animations, and a professional "boot-sequence" entry.
 
-![Portfolio Preview](https://via.placeholder.com/1200x600?text=3D+Cybersecurity+Portfolio+Preview)
-
 ## 🚀 Features
 
 ### **1. Cinematic 3D Environment**
