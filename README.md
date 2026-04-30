@@ -1,8 +1,6 @@
-# Immersive 3D Cybersecurity Portfolio
+# Immersive 3D Portfolio
 
 A high-performance, portfolio designed for cybersecurity professionals. This project features a sophisticated user experience driven by immersive 3D backgrounds, fluid scroll-linked animations, and a professional "boot-sequence" entry.
-
-![Portfolio Preview](https://via.placeholder.com/1200x600?text=3D+Cybersecurity+Portfolio+Preview)
 
 ## 🚀 Features
 
@@ -54,11 +52,5 @@ A high-performance, portfolio designed for cybersecurity professionals. This pro
    ```
 2. **Open `index.html`:**
    Simply open the file in any modern web browser. No build steps or local servers are strictly required, though a local server (like VS Code Live Server) is recommended for the best experience.
-
-## 📝 License
-
-Distributed under the MIT License. See `LICENSE` for more information.
-
----
-
+   
 **Developed with focus on high-end UI/UX and 3D performance.**
