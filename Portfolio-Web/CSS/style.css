@@ -147,7 +147,7 @@ body.boot-locking {
 .global-shield-bg {
   position: fixed;
   top: 50%;
-  left: 32%;                        /* Aligned with hero split but global */
+  left: 50%;                        /* Centered by default for boot */
   transform: translate(-50%, -50%);
   z-index: 0;                       /* above canvas & animated-bg */
   pointer-events: none;
@@ -158,8 +158,8 @@ body.boot-locking {
 
 /* Scale the iso-wrap inside global-shield to a nice viewport size */
 .global-shield-bg .iso-wrap {
-  width: min(480px, 45vw);
-  height: min(480px, 45vw);
+  width: min(440px, 85vw);
+  height: min(440px, 85vw);
 }
 
 img {
