@@ -322,14 +322,14 @@ function initShieldScrollAnimation() {
   // Desktop Path
   mm.add("(min-width: 1025px)", () => {
     const sections = [
-      { id: '#hero', pos: { left: '32%', top: '50%', scale: 1, zIndex: 0 } },
-      { id: '#about', pos: { left: '85%', top: '25%', scale: 0.9, zIndex: 5 } },
-      { id: '#skills', pos: { left: '10%', top: '75%', scale: 0.8, zIndex: 0 } },
-      { id: '#education', pos: { left: '88%', top: '20%', scale: 0.85, zIndex: 0 } },
-      { id: '#experience', pos: { left: '5%', top: '85%', scale: 0.8, zIndex: 0 } },
-      { id: '#certifications', pos: { left: '92%', top: '15%', scale: 0.9, zIndex: 0 } },
-      { id: '#projects', pos: { left: '12%', top: '80%', scale: 0.8, zIndex: 0 } },
-      { id: '#contact', pos: { left: '80%', top: '50%', scale: 1, zIndex: 0 } }
+      { id: '#hero', pos: { left: '32%', top: '50%', scale: 1, zIndex: 0, rotation: 0 } },
+      { id: '#about', pos: { left: '85%', top: '25%', scale: 0.9, zIndex: 5, rotation: 15 } },
+      { id: '#skills', pos: { left: '15%', top: '75%', scale: 0.8, zIndex: 0, rotation: -15 } },
+      { id: '#education', pos: { left: '85%', top: '20%', scale: 0.85, zIndex: 0, rotation: 15 } },
+      { id: '#experience', pos: { left: '15%', top: '85%', scale: 0.8, zIndex: 0, rotation: -15 } },
+      { id: '#certifications', pos: { left: '85%', top: '15%', scale: 0.9, zIndex: 0, rotation: 15 } },
+      { id: '#projects', pos: { left: '15%', top: '80%', scale: 0.8, zIndex: 0, rotation: -15 } },
+      { id: '#contact', pos: { left: '50%', top: '50%', scale: 1, zIndex: 0, rotation: 0 } }
     ];
     createScrollTimeline(sections, 5);
   });
@@ -337,14 +337,14 @@ function initShieldScrollAnimation() {
   // Tablet Path
   mm.add("(min-width: 768px) and (max-width: 1024px)", () => {
     const sections = [
-      { id: '#hero', pos: { left: '50%', top: '40%', scale: 0.8, zIndex: 0 } },
-      { id: '#about', pos: { left: '80%', top: '30%', scale: 0.7, zIndex: 5 } },
-      { id: '#skills', pos: { left: '20%', top: '70%', scale: 0.7, zIndex: 0 } },
-      { id: '#education', pos: { left: '75%', top: '25%', scale: 0.7, zIndex: 0 } },
-      { id: '#experience', pos: { left: '25%', top: '75%', scale: 0.7, zIndex: 0 } },
-      { id: '#certifications', pos: { left: '80%', top: '30%', scale: 0.7, zIndex: 0 } },
-      { id: '#projects', pos: { left: '20%', top: '70%', scale: 0.7, zIndex: 0 } },
-      { id: '#contact', pos: { left: '50%', top: '50%', scale: 0.8, zIndex: 0 } }
+      { id: '#hero', pos: { left: '50%', top: '40%', scale: 0.8, zIndex: 0, rotation: 0 } },
+      { id: '#about', pos: { left: '80%', top: '30%', scale: 0.7, zIndex: 5, rotation: 12 } },
+      { id: '#skills', pos: { left: '20%', top: '70%', scale: 0.7, zIndex: 0, rotation: -12 } },
+      { id: '#education', pos: { left: '75%', top: '25%', scale: 0.7, zIndex: 0, rotation: 12 } },
+      { id: '#experience', pos: { left: '25%', top: '75%', scale: 0.7, zIndex: 0, rotation: -12 } },
+      { id: '#certifications', pos: { left: '80%', top: '30%', scale: 0.7, zIndex: 0, rotation: 12 } },
+      { id: '#projects', pos: { left: '20%', top: '70%', scale: 0.7, zIndex: 0, rotation: -12 } },
+      { id: '#contact', pos: { left: '50%', top: '50%', scale: 0.8, zIndex: 0, rotation: 0 } }
     ];
     createScrollTimeline(sections, 4);
   });
@@ -352,14 +352,14 @@ function initShieldScrollAnimation() {
   // Mobile Path
   mm.add("(max-width: 767px)", () => {
     const sections = [
-      { id: '#hero', pos: { left: '60%', top: '50%', scale: 0.8, zIndex: 0 } }, // Centered
-      { id: '#about', pos: { left: '54%', top: '82%', scale: 0.5, zIndex: 0 } },
-      { id: '#skills', pos: { left: '46%', top: '22%', scale: 0.5, zIndex: 0 } },
-      { id: '#education', pos: { left: '58%', top: '88%', scale: 0.5, zIndex: 0 } },
-      { id: '#experience', pos: { left: '42%', top: '18%', scale: 0.5, zIndex: 0 } },
-      { id: '#certifications', pos: { left: '56%', top: '82%', scale: 0.5, zIndex: 0 } },
-      { id: '#projects', pos: { left: '44%', top: '22%', scale: 0.5, zIndex: 0 } },
-      { id: '#contact', pos: { left: '54%', top: '88%', scale: 0.6, zIndex: 0 } }
+      { id: '#hero', pos: { left: '50%', top: '50%', scale: 0.8, zIndex: 0, rotation: 0 } },
+      { id: '#about', pos: { left: '85%', top: '82%', scale: 0.5, zIndex: 0, rotation: 10 } },
+      { id: '#skills', pos: { left: '15%', top: '22%', scale: 0.5, zIndex: 0, rotation: -10 } },
+      { id: '#education', pos: { left: '85%', top: '88%', scale: 0.5, zIndex: 0, rotation: 10 } },
+      { id: '#experience', pos: { left: '15%', top: '18%', scale: 0.5, zIndex: 0, rotation: -10 } },
+      { id: '#certifications', pos: { left: '85%', top: '82%', scale: 0.5, zIndex: 0, rotation: 10 } },
+      { id: '#projects', pos: { left: '15%', top: '22%', scale: 0.5, zIndex: 0, rotation: -10 } },
+      { id: '#contact', pos: { left: '50%', top: '88%', scale: 0.6, zIndex: 0, rotation: 0 } }
     ];
     createScrollTimeline(sections, 3);
   });
@@ -393,6 +393,7 @@ function initShieldScrollAnimation() {
           top: section.pos.top,
           scale: section.pos.scale,
           zIndex: section.pos.zIndex,
+          rotationZ: section.pos.rotation,
           xPercent: -50,
           yPercent: -50,
           force3D: true,
@@ -412,10 +413,10 @@ document.addEventListener('DOMContentLoaded', () => {
   if (shieldBg && typeof gsap !== 'undefined') {
     // Perfectly centered for boot on all screens
     gsap.set(shieldBg, {
-      left: '70%',
+      left: '50%',
       top: '50%',
       xPercent: -50,
-      yPercent: -40,
+      yPercent: -50,
       scale: 1.1
     });
   }
@@ -434,17 +435,19 @@ window.addEventListener('bootComplete', () => {
     initShieldScrollAnimation();
 
     const isMobile = window.innerWidth < 768;
-    const heroLeft = '60%'; // Keep centered for entry reveal on mobile
-    const heroTop = '50%';
+    const isTablet = window.innerWidth >= 768 && window.innerWidth <= 1024;
+    
+    // Mobile/Tablet use centered (50%), Desktop uses split-layout (32%)
+    const targetLeft = (isMobile || isTablet) ? '50%' : '32%';
     const heroScale = isMobile ? 0.8 : 1;
 
     gsap.to(shieldBg, {
-      left: isMobile ? heroLeft : '50',
-      top: heroTop,
+      left: targetLeft,
+      top: '50%',
       scale: heroScale,
       xPercent: -50,
       yPercent: -50,
-      duration: 2.5,
+      duration: 1.5,
       ease: "power3.inOut"
     });
 
