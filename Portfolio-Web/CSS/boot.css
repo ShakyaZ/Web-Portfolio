@@ -1,0 +1,64 @@
+/*
+ * ═══════════════════════════════════════════
+ *  css/boot.css
+ *  Simplified Automatic Boot / loading screen.
+ * ═══════════════════════════════════════════
+ */
+
+#boot {
+  position: fixed; inset: 0;
+  z-index: 9000;
+  background-color: transparent; /* Show main background and shield immediately */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#boot.out { opacity: 0; pointer-events: none; }
+
+.boot-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ── PROGRESS BAR ── */
+.boot-bar-wrap {
+  margin-top: 320px; /* Space for the centered shield */
+  width: min(280px, 80%);
+  opacity: 0;
+  transition: opacity .5s ease;
+}
+.boot-bar-wrap.show { opacity: 1; }
+
+.boot-bar-top {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: .7rem;
+  color: var(--text-secondary);
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.boot-bar-track {
+  height: 2px;
+  background: var(--border-subtle);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.boot-bar-fill {
+  height: 100%;
+  width: 0;
+  background: var(--cyan);
+  box-shadow: 0 0 15px var(--cyan-glow);
+  transition: width .25s ease-out;
+}
