@@ -111,6 +111,33 @@ body {
     color var(--transition-slow);
   overflow-x: hidden;
   min-height: 100vh;
+  
+  /* Firefox Scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: var(--cyan) var(--bg-secondary);
+}
+
+/* ── CUSTOM SCROLLBAR (WebKit) ── */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+  border-left: 1px solid var(--border-subtle);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--cyan);
+  border-radius: 5px;
+  border: 2px solid var(--bg-secondary); /* Padding effect */
+  min-height: 40px;
+  box-shadow: 0 0 12px var(--cyan-glow);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--purple);
+  box-shadow: 0 0 18px var(--cyan-glow);
 }
 
 /* Scroll lock during boot */
@@ -1490,7 +1517,8 @@ h1, h2, h3, h4 {
   .iso-wrap { width: 320px; height: 320px; }
 
   /* About, skills, contact: single column */
-  .about-grid   { grid-template-columns: 1fr; }
+  .about-grid   { grid-template-columns: 1fr; gap: 1.5rem; }
+  .about-visual { display: none; } /* Remove the gap on mobile */
   .skills-grid  { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
 
