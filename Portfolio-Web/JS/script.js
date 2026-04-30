@@ -406,6 +406,12 @@ function initShieldScrollAnimation() {
 
 // Initialize when DOM be ready
 document.addEventListener('DOMContentLoaded', () => {
+  // Prevent browser from restoring scroll position
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  window.scrollTo(0, 0);
+
   // Lock scroll during boot
   document.body.classList.add('boot-locking');
 
