@@ -317,91 +317,68 @@ function initShieldScrollAnimation() {
   const shieldBg = document.querySelector('.global-shield-bg');
   if (!shieldBg) return;
 
-  const mm = gsap.matchMedia();
+  const isMobile = window.innerWidth < 768;
 
-  // Desktop Path
-  mm.add("(min-width: 1025px)", () => {
-    const sections = [
-      { id: '#hero', pos: { left: '32%', top: '50%', scale: 1, zIndex: 0, rotation: 0 } },
-      { id: '#about', pos: { left: '85%', top: '25%', scale: 0.9, zIndex: 5, rotation: 15 } },
-      { id: '#skills', pos: { left: '15%', top: '75%', scale: 0.8, zIndex: 0, rotation: -15 } },
-      { id: '#education', pos: { left: '85%', top: '20%', scale: 0.85, zIndex: 0, rotation: 15 } },
-      { id: '#experience', pos: { left: '15%', top: '85%', scale: 0.8, zIndex: 0, rotation: -15 } },
-      { id: '#certifications', pos: { left: '85%', top: '15%', scale: 0.9, zIndex: 0, rotation: 15 } },
-      { id: '#projects', pos: { left: '15%', top: '80%', scale: 0.8, zIndex: 0, rotation: -15 } },
-      { id: '#contact', pos: { left: '50%', top: '50%', scale: 1, zIndex: 0, rotation: 0 } }
-    ];
-    createScrollTimeline(sections, 5);
+  // Mobile: Always centered (50%). Desktop: Slalom (15%/85%)
+  const config = isMobile ? {
+    '#hero':           { left: isMobile ? '50%' : '30%', top: '50%', scale: isMobile ? 0.8 : 1.0, rotation: 0,  zIndex: 0 },
+    '#about':          { left: '50%', top: '55%', scale: 0.8, rotation: 0,  zIndex: 10 }, // Closer to content
+    '#skills':         { left: '50%', top: '22%', scale: 0.6, rotation: 0,  zIndex: 0 },
+    '#education':      { left: '50%', top: '88%', scale: 0.6, rotation: 0,  zIndex: 0 },
+    '#experience':     { left: '50%', top: '18%', scale: 0.6, rotation: 0,  zIndex: 0 },
+    '#certifications': { left: '50%', top: '82%', scale: 0.6, rotation: 0,  zIndex: 0 },
+    '#projects':       { left: '50%', top: '22%', scale: 0.6, rotation: 0,  zIndex: 0 },
+    '#contact':        { left: '50%', top: '88%', scale: 0.7, rotation: 0,  zIndex: 0 }
+  } : {
+    '#hero':           { left: '30%', top: '50%', scale: 1.0, rotation: 0,   zIndex: 0 },
+    '#about':          { left: '75%', top: '50%', scale: 1.1, rotation: 0,   zIndex: 10 },
+    '#skills':         { left: '15%', top: '70%', scale: 0.8, rotation: -15, zIndex: 0 },
+    '#education':      { left: '85%', top: '25%', scale: 0.8, rotation: 15,  zIndex: 0 },
+    '#experience':     { left: '15%', top: '80%', scale: 0.8, rotation: -15, zIndex: 0 },
+    '#certifications': { left: '85%', top: '20%', scale: 0.8, rotation: 15,  zIndex: 0 },
+    '#projects':       { left: '15%', top: '75%', scale: 0.8, rotation: -15, zIndex: 0 },
+    '#contact':        { left: '85%', top: '50%', scale: 1.0, rotation: 0,   zIndex: 0 }
+  };
+
+  const sectionIds = Object.keys(config);
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: "main",
+      start: "top top",
+      end: "bottom bottom",
+      scrub: 0.7,
+      invalidateOnRefresh: true
+    }
   });
 
-  // Tablet Path
-  mm.add("(min-width: 768px) and (max-width: 1024px)", () => {
-    const sections = [
-      { id: '#hero', pos: { left: '50%', top: '40%', scale: 0.8, zIndex: 0, rotation: 0 } },
-      { id: '#about', pos: { left: '80%', top: '30%', scale: 0.7, zIndex: 5, rotation: 12 } },
-      { id: '#skills', pos: { left: '20%', top: '70%', scale: 0.7, zIndex: 0, rotation: -12 } },
-      { id: '#education', pos: { left: '75%', top: '25%', scale: 0.7, zIndex: 0, rotation: 12 } },
-      { id: '#experience', pos: { left: '25%', top: '75%', scale: 0.7, zIndex: 0, rotation: -12 } },
-      { id: '#certifications', pos: { left: '80%', top: '30%', scale: 0.7, zIndex: 0, rotation: 12 } },
-      { id: '#projects', pos: { left: '20%', top: '70%', scale: 0.7, zIndex: 0, rotation: -12 } },
-      { id: '#contact', pos: { left: '50%', top: '50%', scale: 0.8, zIndex: 0, rotation: 0 } }
-    ];
-    createScrollTimeline(sections, 4);
+  // Initialize at Hero position
+  tl.set(shieldBg, {
+    ...config['#hero'],
+    xPercent: -50,
+    yPercent: -50
   });
 
-  // Mobile Path
-  mm.add("(max-width: 767px)", () => {
-    const sections = [
-      { id: '#hero', pos: { left: '50%', top: '50%', scale: 0.8, zIndex: 0, rotation: 0 } },
-      { id: '#about', pos: { left: '85%', top: '82%', scale: 0.5, zIndex: 0, rotation: 10 } },
-      { id: '#skills', pos: { left: '15%', top: '22%', scale: 0.5, zIndex: 0, rotation: -10 } },
-      { id: '#education', pos: { left: '85%', top: '88%', scale: 0.5, zIndex: 0, rotation: 10 } },
-      { id: '#experience', pos: { left: '15%', top: '18%', scale: 0.5, zIndex: 0, rotation: -10 } },
-      { id: '#certifications', pos: { left: '85%', top: '82%', scale: 0.5, zIndex: 0, rotation: 10 } },
-      { id: '#projects', pos: { left: '15%', top: '22%', scale: 0.5, zIndex: 0, rotation: -10 } },
-      { id: '#contact', pos: { left: '50%', top: '88%', scale: 0.6, zIndex: 0, rotation: 0 } }
-    ];
-    createScrollTimeline(sections, 3);
-  });
-
-  function createScrollTimeline(sections, scrubVal) {
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: "main",
-        start: "top top",
-        end: "bottom bottom",
-        scrub: scrubVal,
-        invalidateOnRefresh: true
-      }
+  // Build the path
+  sectionIds.slice(1).forEach((id) => {
+    const pos = config[id];
+    tl.to(shieldBg, {
+      ...pos,
+      xPercent: -50,
+      yPercent: -50,
+      duration: 1, 
+      ease: "power1.inOut"
     });
+  });
+}
 
-    sections.forEach((section, index) => {
-      // First section is our "base" state at scroll 0
-      if (index === 0) {
-        tl.set(shieldBg, {
-          left: section.pos.left,
-          top: section.pos.top,
-          scale: section.pos.scale,
-          zIndex: section.pos.zIndex,
-          xPercent: -50,
-          yPercent: -50,
-          immediateRender: false
-        });
-      } else {
-        tl.to(shieldBg, {
-          left: section.pos.left,
-          top: section.pos.top,
-          scale: section.pos.scale,
-          zIndex: section.pos.zIndex,
-          rotationZ: section.pos.rotation,
-          xPercent: -50,
-          yPercent: -50,
-          force3D: true,
-          ease: "sine.inOut"
-        });
-      }
-    });
-  }
+// Helper to get initial Hero position for bootComplete
+function getInitialHeroPos() {
+  const isMobile = window.innerWidth < 768;
+  return { 
+    left: isMobile ? '50%' : '30%', 
+    scale: isMobile ? 0.8 : 1.0 
+  };
 }
 
 // Initialize when DOM be ready
@@ -440,17 +417,12 @@ window.addEventListener('bootComplete', () => {
   if (shieldBg && typeof gsap !== 'undefined') {
     initShieldScrollAnimation();
 
-    const isMobile = window.innerWidth < 768;
-    const isTablet = window.innerWidth >= 768 && window.innerWidth <= 1024;
-    
-    // Mobile/Tablet use centered (50%), Desktop uses split-layout (32%)
-    const targetLeft = (isMobile || isTablet) ? '50%' : '32%';
-    const heroScale = isMobile ? 0.8 : 1;
+    const heroPos = getInitialHeroPos();
 
     gsap.to(shieldBg, {
-      left: targetLeft,
+      left: heroPos.left,
       top: '50%',
-      scale: heroScale,
+      scale: heroPos.scale,
       xPercent: -50,
       yPercent: -50,
       duration: 1.5,
